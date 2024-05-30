@@ -78,3 +78,17 @@ Helps in understanding which features are strongly correlated with the target va
 - Age: Older age groups (50-70 years) have a higher prevalence of CHD.
 - Hypertension and Blood Pressure: High blood pressure is strongly correlated with hypertension, which in turn is a risk factor for CHD.
 - Outliers: Certain attributes have outliers that need to be handled during preprocessing.
+
+### 5. Data Preprocessing
+This section involves preparing the data for model building. Key steps include:
+
+#### Handling Missing Values
+Identify Missing Values: Use isnull() and sum() functions to identify missing values in the dataset.
+#### Imputation: Missing values are imputed using appropriate strategies:
+- For numerical attributes, missing values are filled using the mean or median of the respective column.
+- For categorical attributes, missing values are filled using the mode of the respective column.
+#### Encoding Categorical Variables
+- Label Encoding: Converts categorical text data into numerical data. For example, 'Male' and 'Female' are encoded as 0 and 1 respectively.
+- One-Hot Encoding: Creates binary columns for each category in a categorical feature. This is useful for features with more than two categories.
+#### Scaling Numerical Features
+- Normalization: Rescales the numerical attributes to a standard range (typically 0 to 1). This ensures that all features contribute equally to the model. Techniques such as Min-Max scaling or StandardScaler from scikit-learn are used.
