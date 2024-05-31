@@ -45,34 +45,50 @@ The dataset is loaded and initial data inspection is performed. This includes:
 Exploratory Data Analysis (EDA) is a crucial step in understanding the dataset and uncovering patterns, anomalies, and relationships between variables. In this project, EDA includes visualizations and statistical analyses to gain insights into the data.
 #### - Gender Distribution
 Count Plot: Shows the distribution of patients by gender.
+<img width="856" alt="gender_distribution" src="https://github.com/Akshadakambale/ML_CHD_project/assets/166009612/6050547d-46f3-4441-b4a0-12a991a8abf4">
 There are more than 1,750 female patients and approximately 1,500 male patients.
+
 #### - CHD Risk Distribution
 Count Plot: Displays the distribution of patients with and without CHD risk.
+<img width="658" alt="chd_risk_distribution" src="https://github.com/Akshadakambale/ML_CHD_project/assets/166009612/413c6e41-8b6d-4b99-9204-c90c23903e94">
 Approximately 2,800 patients have no risk of CHD, while around 500 patients are at risk.
+
 #### - CHD Risk by Gender
 Count Plot: Shows the distribution of CHD risk among males and females.
+<img width="672" alt="chd_risk_by_gender" src="https://github.com/Akshadakambale/ML_CHD_project/assets/166009612/daa577a3-7a25-4b3d-b5bb-67a570437152">
 Approximately 250 females and 300 males are at risk of CHD.
+
 #### - Smoking Status and CHD Risk
 Bar Plot: Illustrates the CHD risk based on smoking status.
+<img width="659" alt="smoking_status_and_chd_risk" src="https://github.com/Akshadakambale/ML_CHD_project/assets/166009612/a34d98c8-87d5-4027-9ea7-4e0ddae1c895">
 Patients who smoke have a higher risk of CHD compared to non-smokers.
+
 #### - Outliers in Data
 Box Plot: Identifies outliers in the dataset.
 Values above 100 and below 50 in certain attributes are acting as outliers.
-#### - Age and CHD Risk
-Box Plot: Examines the distribution of CHD risk across different age groups.
-Majority of patients with CHD fall within the age range of 50 to 60 years.
-Some patients with CHD are older, ranging from 60 to 70 years old.
+
+#### -Heart Rate by Hypertension Status
+Box Plot: Examines the patients without hypertension tend to have a slightly higher median heart rate compared to patients with hypertension.The interquartile range (IQR) indicates the variability in heart rate within each group.
+<img width="838" alt="heart_rate_by_hypertension" src="https://github.com/Akshadakambale/ML_CHD_project/assets/166009612/1f9fbb13-fab9-4c23-9f92-987eb1a1bd08">
+The interquartile range (IQR) is within 70 to 87 heart rate for the patients having History of Hypertension, suggesting that most hypertensive patients have heart rates within this range, which is generally slightly higher than non-hypertensive patients.
+
 #### - Stroke History and CHD Risk
 Scatter Plot: Observes the prevalence of stroke across different age groups.
+<img width="851" alt="prevalent_heart_stroke" src="https://github.com/Akshadakambale/ML_CHD_project/assets/166009612/d42fca5c-1c49-4f82-bdd3-26b68bd65243">
 Patients with a history of stroke and age above 50 years have a higher risk of CHD.
+
 #### - Blood Pressure and Hypertension
 Scatter Plot: Displays the relationship between systolic blood pressure and hypertension.
+<img width="659" alt="blood_pressure_and_hypertension" src="https://github.com/Akshadakambale/ML_CHD_project/assets/166009612/c6b0f153-bf92-4e63-bde0-7a5e69f207bf">
 There is a strong positive correlation between high systolic blood pressure and hypertension.
 The scatter plot shows a separation between individuals with and without hypertension based on their systolic blood pressure readings.
+
 #### - Correlation Heatmap
 Heatmap: Shows the correlation matrix of the dataset.
+<img width="859" alt="heatmap" src="https://github.com/Akshadakambale/ML_CHD_project/assets/166009612/f1173228-d2c9-4b66-809d-926c644ec0ba">
 Identifies the strength of relationships between different attributes.
 Helps in understanding which features are strongly correlated with the target variable (CHD risk).
+
 ### Key Findings from EDA
 - Gender and CHD Risk: Gender does not show a significant imbalance in CHD risk.
 - Smoking: Smoking is a significant risk factor for CHD.
