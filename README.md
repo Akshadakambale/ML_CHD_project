@@ -33,6 +33,7 @@ In this section, all necessary libraries are imported. These include:
 - 'scikit-learn' for machine learning algorithms and model evaluation.
 - 'matplotlib' and 'seaborn' for data visualization.
 - 'warnings' to ignore warnings for cleaner outputs.
+  
 ### 3. Data Gathering
 The dataset is loaded and initial data inspection is performed. This includes:
 
@@ -94,10 +95,6 @@ Identify Missing Values: Use isnull() and sum() functions to identify missing va
 - Normalization: Rescales the numerical attributes to a standard range (typically 0 to 1). This ensures that all features contribute equally to the model. Techniques such as Min-Max scaling or StandardScaler from scikit-learn are used.
 ### Data Splitting
 Before training the models, we need to split the dataset into training and testing sets. This ensures that we can evaluate the model's performance on unseen data. The train_test_split function from scikit-learn is used for this purpose.
-from sklearn.model_selection import train_test_split
-
-# Assuming x is the feature matrix and y is the target vector
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 ### Model Building Implementation
 #### 1. Logistic Regression
@@ -109,24 +106,7 @@ Overview: Logistic Regression is a linear model used for binary classification. 
 - Training: Fit the model on the training data using the fit() method.
 - Prediction: Use the predict() method to make predictions on the test data.
 - Evaluation: Assess the model's performance using metrics like accuracy, precision, recall, and ROC-AUC score.
-  from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score, confusion_matrix
-
-# Initialize the model
-log_reg = LogisticRegression()
-
-# Train the model
-log_reg.fit(X_train, y_train)
-
-# Make predictions
-y_pred_lr = log_reg.predict(X_test)
-
-# Evaluate the model
-print("Logistic Regression Accuracy:", accuracy_score(y_test, y_pred_lr))
-print("Logistic Regression Precision:", precision_score(y_test, y_pred_lr))
-print("Logistic Regression Recall:", recall_score(y_test, y_pred_lr))
-print("Logistic Regression ROC-AUC Score:", roc_auc_score(y_test, y_pred_lr))
-
+ 
 #### 2. K-Nearest Neighbors (KNN)
 Overview: KNN is a non-parametric method that classifies a data point based on the majority class of its k-nearest neighbors.
 
@@ -136,23 +116,6 @@ Overview: KNN is a non-parametric method that classifies a data point based on t
 - Training: Fit the model on the training data using the fit() method.
 - Prediction: Use the predict() method to classify the test data.
 - Evaluation: Assess the model's performance using metrics like accuracy, precision, recall, and ROC-AUC score.
-
-from sklearn.neighbors import KNeighborsClassifier
-
-# Initialize the model
-knn = KNeighborsClassifier(n_neighbors=5)
-
-# Train the model
-knn.fit(X_train, y_train)
-
-# Make predictions
-y_pred_knn = knn.predict(X_test)
-
-# Evaluate the model
-print("KNN Accuracy:", accuracy_score(y_test, y_pred_knn))
-print("KNN Precision:", precision_score(y_test, y_pred_knn))
-print("KNN Recall:", recall_score(y_test, y_pred_knn))
-print("KNN ROC-AUC Score:", roc_auc_score(y_test, y_pred_knn))
 
 #### 3. Decision Tree
 Overview: Decision Trees split the data into branches based on feature values to make predictions. Each internal node represents a test, each branch represents an outcome, and each leaf node represents a class label.
@@ -164,23 +127,7 @@ Overview: Decision Trees split the data into branches based on feature values to
 - Prediction: Use the predict() method to make predictions on the test data.
 - Evaluation: Assess the model's performance using metrics like accuracy, precision, recall, and ROC-AUC score.
 
-  from sklearn.tree import DecisionTreeClassifier
-
-# Initialize the model
-dt = DecisionTreeClassifier()
-
-# Train the model
-dt.fit(X_train, y_train)
-
-# Make predictions
-y_pred_dt = dt.predict(X_test)
-
-# Evaluate the model
-print("Decision Tree Accuracy:", accuracy_score(y_test, y_pred_dt))
-print("Decision Tree Precision:", precision_score(y_test, y_pred_dt))
-print("Decision Tree Recall:", recall_score(y_test, y_pred_dt))
-print("Decision Tree ROC-AUC Score:", roc_auc_score(y_test, y_pred_dt))
-
+  
 #### 4. Random Forest
 Overview: Random Forest is an ensemble method that constructs multiple decision trees and merges their predictions to improve accuracy and control over-fitting.
 
@@ -191,54 +138,75 @@ Overview: Random Forest is an ensemble method that constructs multiple decision 
 - Prediction: Use the predict() method to classify the test data.
 - Evaluation: Assess the model's performance using metrics like accuracy, precision, recall, and ROC-AUC score.
 
-  from sklearn.ensemble import RandomForestClassifier
-
-# Initialize the model
-rf = RandomForestClassifier(n_estimators=100)
-
-# Train the model
-rf.fit(X_train, y_train)
-
-# Make predictions
-y_pred_rf = rf.predict(X_test)
-
-# Evaluate the model
-print("Random Forest Accuracy:", accuracy_score(y_test, y_pred_rf))
-print("Random Forest Precision:", precision_score(y_test, y_pred_rf))
-print("Random Forest Recall:", recall_score(y_test, y_pred_rf))
-print("Random Forest ROC-AUC Score:", roc_auc_score(y_test, y_pred_rf))
-
-### 7. Model Evaluation
+### 6. Model Evaluation
 
 After training machine learning models, it's crucial to evaluate their performance using various metrics. These metrics help us understand how well the model is performing and whether it's suitable for the task at hand.
 
-#### Accuracy
-- Definition: Accuracy measures the proportion of correctly classified instances out of the total instances.
-- Usage: It's a general metric that indicates overall model performance but may not be suitable for imbalanced datasets.
-#### Precision
-- Definition: Precision measures the accuracy of positive predictions, indicating how many of the predicted positive instances are actually positive.
-- Usage: It's useful when the cost of false positives is high, and we want to minimize false positive predictions.
-#### Recall (Sensitivity or True Positive Rate)
-- Definition: Recall measures the ability of the model to identify positive instances correctly, indicating how many actual positives were correctly predicted.
-- Usage: It's crucial when the cost of false negatives is high, and we want to minimize missed positive predictions.
-#### ROC-AUC Score
-- Definition: ROC-AUC (Receiver Operating Characteristic - Area Under Curve) is a performance metric for binary classification models. It plots the true positive rate against the false positive rate.
-- Usage: It provides an overall measure of how well the model can distinguish between positive and negative classes, irrespective of the chosen threshold.
-#### Confusion Matrix
-- Definition: A confusion matrix is a table that shows the true positives, false positives, true negatives, and false negatives of a classification model.
-- Usage: It provides detailed insights into the model's performance across different classes and helps identify where the model is making errors.
+* Logistic Regression (Original):
+Precision = 0.70, Recall = 0.04,Accuracy = 83%
+Confusion Matrix:
+[[792 3]
+[155 7]]
 
-#### Interpretation of Results
-- Accuracy: High accuracy indicates overall correct predictions but may not be informative for imbalanced datasets.
-- Precision: High precision means fewer false positive predictions.
-- Recall: High recall indicates fewer false negatives, ensuring most positive instances are correctly predicted.
-- ROC-AUC Score: A score close to 1 indicates a good model that can distinguish between classes effectively.
-- Confusion Matrix: Provides detailed information about true positives, false positives, true negatives, and false negatives, helping understand the model's errors.
+* K-Nearest Neighbors (Original):
+Precision = 0.28, Recall = 0.05,Accuracy = 81%
+Confusion Matrix:
+[[774 21]
+ [154 8]]
 
-### 8. Handling Class Imbalance
-Techniques such as SMOTE (Synthetic Minority Over-sampling Technique) are used to address class imbalance. The impact of these techniques on model performance is assessed.
+* Decision Tree (Original):
+Precision = 0.26, Recall = 0.24,Acuracy = 75%
+Confusion Matrix:
+[[682 113]
+ [123 39]]
 
-### 9. Conclusion
+* Random Forest (Original):
+Precision = 1.0, Recall = 0.14,Accuracy = 83%
+Confusion Matrix:
+[[793 2]
+ [157 5]]
+
+These results indicate that the models have higher precision but lower recall, meaning they are making fewer false positives but missing more positive instances.So, we need to balance dataset to improve the recall.
+
+### 7. Handling Imbalanced Dataset with SMOTE
+Techniques such as SMOTE (Synthetic Minority Over-sampling Technique) are used to address class imbalance. The impact of these techniques on model performance is assessed. SMOTE (Synthetic Minority Over-sampling Technique) is an oversampling method used to balance class distribution in datasets. It works by generating synthetic samples for the minority class by interpolating between existing minority class samples.
+
+* Steps to Use SMOTE
+  * Install and Import SMOTE: Install the imbalanced-learn library if not already installed, and import SMOTE.
+  * Apply SMOTE: Use SMOTE to create a balanced dataset by oversampling the minority class.
+  *  Train and Evaluate Models: Train the models on both the original and balanced datasets and compare their performance.
+
+* Logistic Regression (Balanced):
+Precision = 0.32, Recall = 0.49, Accuracy = 73%
+Confusion Matrix:
+[[625 170]
+ [ 82 80]]
+
+* K-Nearest Neighbors (Balanced):
+Precision = 0.23, Recall = 0.51, Accuracy = 62%
+Confusion Matrix:
+[[519 276]
+ [ 80 82]]
+
+* Decision Tree (Balanced):
+Precision = 0.25, Recall = 0.37,Accuracy = 70%
+Confusion Matrix:
+[[616 179]
+ [ 102 60]]
+
+* Random Forest (Balanced):
+Precision = 0.86, Recall = 0.93,Accuracy = 72%
+Confusion Matrix:
+[[616 179]
+ [ 85 77]]
+ 
+* After Balancing (Using SMOTE):
+
+Models show improved recall at the expense of precision, meaning they can identify more positive instances but also produce more false positives.
+Random Forest continues to perform well with a good balance between precision and recall, indicating it is robust to the effects of balancing.
+Logistic Regression and Decision Tree also show improved recall, indicating their enhanced ability to detect positive cases after balancing.
+
+### 8. Conclusion
 Summarizes the findings and highlights the best-performing model. The Random Forest model is identified as the best performer with an accuracy of 72% and a recall of 93% for predicting CHD risk.
 
 ## Results
