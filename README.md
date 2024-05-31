@@ -93,10 +93,11 @@ Identify Missing Values: Use isnull() and sum() functions to identify missing va
 - One-Hot Encoding: Creates binary columns for each category in a categorical feature. This is useful for features with more than two categories.
 #### Scaling Numerical Features :
 - Normalization: Rescales the numerical attributes to a standard range (typically 0 to 1). This ensures that all features contribute equally to the model. Techniques such as Min-Max scaling or StandardScaler from scikit-learn are used.
-### Data Splitting
+
+### 6. Model Building Implementation
+#### Data Splitting
 Before training the models, we need to split the dataset into training and testing sets. This ensures that we can evaluate the model's performance on unseen data. The train_test_split function from scikit-learn is used for this purpose.
 
-### Model Building Implementation
 #### 1. Logistic Regression
 Overview: Logistic Regression is a linear model used for binary classification. It predicts the probability of a binary outcome based on one or more predictor variables.
 
@@ -138,7 +139,7 @@ Overview: Random Forest is an ensemble method that constructs multiple decision 
 - Prediction: Use the predict() method to classify the test data.
 - Evaluation: Assess the model's performance using metrics like accuracy, precision, recall, and ROC-AUC score.
 
-### 6. Model Evaluation
+### 7. Model Evaluation
 
 After training machine learning models, it's crucial to evaluate their performance using various metrics. These metrics help us understand how well the model is performing and whether it's suitable for the task at hand.
 
@@ -168,7 +169,7 @@ Confusion Matrix:
 
 These results indicate that the models have higher precision but lower recall, meaning they are making fewer false positives but missing more positive instances.So, we need to balance dataset to improve the recall.
 
-### 7. Handling Imbalanced Dataset with SMOTE
+### 8. Handling Imbalanced Dataset with SMOTE
 Techniques such as SMOTE (Synthetic Minority Over-sampling Technique) are used to address class imbalance. The impact of these techniques on model performance is assessed. SMOTE (Synthetic Minority Over-sampling Technique) is an oversampling method used to balance class distribution in datasets. It works by generating synthetic samples for the minority class by interpolating between existing minority class samples.
 
 * Steps to Use SMOTE
@@ -206,7 +207,7 @@ Models show improved recall at the expense of precision, meaning they can identi
 Random Forest continues to perform well with a good balance between precision and recall, indicating it is robust to the effects of balancing.
 Logistic Regression and Decision Tree also show improved recall, indicating their enhanced ability to detect positive cases after balancing.
 
-### 8. Conclusion
+### 9. Conclusion
 Summarizes the findings and highlights the best-performing model. The Random Forest model is identified as the best performer with an accuracy of 72% and a recall of 93% for predicting CHD risk.
 
 ## Results
